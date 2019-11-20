@@ -10,9 +10,14 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private IEmployeeRepository employeeRepository;
+        public HomeController(IEmployeeRepository employeeRepository)
         {
-            return View();
+            this.employeeRepository = employeeRepository;  
+        }
+        public string Index()
+        {
+            return employeeRepository.GetEmployee(1).Name;
         }
 
         public IActionResult Privacy()
