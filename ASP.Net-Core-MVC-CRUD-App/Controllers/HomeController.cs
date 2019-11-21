@@ -20,6 +20,11 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
             return employeeRepository.GetEmployee(1).Name;
         }
 
+        public JsonResult Details()
+        {
+            Employee model = employeeRepository.GetEmployee(1);
+            return Json(model);
+        }
         public IActionResult Privacy()
         {
             return View();
