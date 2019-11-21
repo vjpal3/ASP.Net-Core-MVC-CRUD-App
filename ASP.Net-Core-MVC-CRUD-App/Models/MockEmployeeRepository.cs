@@ -23,5 +23,10 @@ namespace ASP.Net_Core_MVC_CRUD_App.Models
         {
             return employeeList.FirstOrDefault(e => e.Id == Id);
         }
+
+        public IEnumerable<Employee> GetAllEmployees()
+        {
+            return employeeList;
+        }
     }
 }
