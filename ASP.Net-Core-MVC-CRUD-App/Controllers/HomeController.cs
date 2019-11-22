@@ -27,10 +27,24 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ViewResult Create()
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee newEmployee = employeeRepository.Add(employee);
+                return RedirectToAction("Details", new { id = newEmployee.Id });
+            }
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

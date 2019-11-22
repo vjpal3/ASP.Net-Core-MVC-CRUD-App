@@ -9,5 +9,6 @@ namespace ASP.Net_Core_MVC_CRUD_App.Models
     {
         Employee GetEmployee(int Id);
         IEnumerable<Employee> GetAllEmployees();
+        Employee Add(Employee employee);
     }
 }

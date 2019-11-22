@@ -28,5 +28,12 @@ namespace ASP.Net_Core_MVC_CRUD_App.Models
         {
             return employeeList;
         }
+
+        public Employee Add(Employee employee)
+        {
+            employee.Id = employeeList.Max(e => e.Id) + 1;
+            employeeList.Add(employee);
+            return employee;
+        }
     }
 }
