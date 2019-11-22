@@ -33,6 +33,7 @@ namespace ASP.Net_Core_MVC_CRUD_App
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().AddRazorOptions(options => options.AllowRecompilingViewsOnFileChange = true);
 
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
         }
