@@ -26,6 +26,11 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
             Employee model = employeeRepository.GetEmployee(id ?? 1);
             return View(model);
         }
+
+        public ViewResult Create()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -13,9 +13,9 @@ namespace ASP.Net_Core_MVC_CRUD_App.Models
         {
             employeeList = new List<Employee>()
             {
-                new Employee() { Id = 1, Name = "Mary", Department = "HR", Email = "mary@softec.com" },
-                new Employee() { Id = 2, Name = "John", Department = "IT", Email = "john@softec.com" },
-                new Employee() { Id = 3, Name = "Sam", Department = "IT", Email = "sam@softec.com" }
+                new Employee() { Id = 1, Name = "Mary", Department = Dept.HR, Email = "mary@softec.com" },
+                new Employee() { Id = 2, Name = "John", Department = Dept.IT, Email = "john@softec.com" },
+                new Employee() { Id = 3, Name = "Sam", Department = Dept.IT, Email = "sam@softec.com" }
             };
 
         }
