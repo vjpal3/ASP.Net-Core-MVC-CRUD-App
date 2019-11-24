@@ -35,5 +35,29 @@ namespace ASP.Net_Core_MVC_CRUD_App.Models
             employeeList.Add(employee);
             return employee;
         }
+
+        public Employee Update(Employee employeeChanges)
+        {
+            Employee employee = employeeList.FirstOrDefault(e => e.Id == employeeChanges.Id);
+
+            if (employee != null)
+            {
+                employee.Name = employeeChanges.Name;
+                employee.Email = employeeChanges.Email;
+                employee.Department = employeeChanges.Department;
+            }
+            return employee;
+        }
+
+        public Employee Delete(int id)
+        {
+            Employee employee = employeeList.FirstOrDefault(e => e.Id == id);
+
+            if(employee != null)
+            {
+                employeeList.Remove(employee);
+            }
+            return employee;
+        }
     }
 }

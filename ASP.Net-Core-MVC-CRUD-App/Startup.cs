@@ -38,7 +38,7 @@ namespace ASP.Net_Core_MVC_CRUD_App
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMvc().AddRazorOptions(options => options.AllowRecompilingViewsOnFileChange = true);
 
-            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
