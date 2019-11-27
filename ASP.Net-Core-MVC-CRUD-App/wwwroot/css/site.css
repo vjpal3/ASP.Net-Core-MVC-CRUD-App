@@ -62,3 +62,8 @@ body {
 .card-img-top {
     width: auto;
 }
+
+.imageThumbnail {
+    height: 200px; 
+    width: auto;
+}
