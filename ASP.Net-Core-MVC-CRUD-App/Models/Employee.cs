@@ -22,5 +22,8 @@ namespace ASP.Net_Core_MVC_CRUD_App.Models
 
         [Required]
         public Dept? Department { get; set; }
+
+        public string PhotoPath { get; set; }
+
     }
 }

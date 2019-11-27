@@ -6,6 +6,17 @@
     <RootNamespace>ASP.Net_Core_MVC_CRUD_App</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20191127021657_help.cs" />
+    <Compile Remove="Migrations\20191127021657_help.Designer.cs" />
+    <Compile Remove="Migrations\20191127021832_AddPhotoPathColumn.cs" />
+    <Compile Remove="Migrations\20191127021832_AddPhotoPathColumn.Designer.cs" />
+    <Compile Remove="Migrations\20191127022022_AddSomeProperty.cs" />
+    <Compile Remove="Migrations\20191127022022_AddSomeProperty.Designer.cs" />
+    <Compile Remove="Migrations\20191127022646_AddPhotoPathColumn.cs" />
+    <Compile Remove="Migrations\20191127022646_AddPhotoPathColumn.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
