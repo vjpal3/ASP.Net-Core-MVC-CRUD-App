@@ -30,6 +30,11 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
         public ViewResult Details(int? id)
         {
             Employee model = employeeRepository.GetEmployee(id ?? 1);
+            if(model == null)
+            {
+                Response.StatusCode = 404;
+                return View("EmployeeNotFound", id.Value);
+            }
             return View(model);
         }
 
