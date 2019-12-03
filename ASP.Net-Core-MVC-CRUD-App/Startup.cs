@@ -50,7 +50,7 @@ namespace ASP.Net_Core_MVC_CRUD_App
             }
             else
             {
-                app.UseStatusCodePagesWithRedirects("/Error/{0}");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 
             app.UseHttpsRedirection();
