@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 
 namespace ASP.Net_Core_MVC_CRUD_App
 {
@@ -19,6 +20,16 @@ namespace ASP.Net_Core_MVC_CRUD_App
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                 .ConfigureLogging((hostingContext, logging) =>
+                 {
+                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                     logging.AddConsole();
+                     logging.AddDebug();
+                     logging.AddEventSourceLogger();
+
+                     //Enable NLog as one of the Logging Providers
+                     logging.AddNLog();
+                 })
                 .UseStartup<Startup>();
     }
 }
