@@ -29,7 +29,7 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
 
         public ViewResult Details(int? id)
         {
-            //throw new Exception("Error in Details View");
+            throw new Exception("Error in Details View");
             Employee model = employeeRepository.GetEmployee(id ?? 1);
             if(model == null)
             {
