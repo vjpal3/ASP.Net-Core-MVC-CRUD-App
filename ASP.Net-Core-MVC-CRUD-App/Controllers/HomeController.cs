@@ -8,9 +8,11 @@ using ASP.Net_Core_MVC_CRUD_App.Models;
 using ASP.Net_Core_MVC_CRUD_App.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASP.Net_Core_MVC_CRUD_App.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IEmployeeRepository employeeRepository;
@@ -21,12 +23,15 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
             this.employeeRepository = employeeRepository;
             this.hostingEnvironment = hostingEnvironment;
         }
+
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var model = employeeRepository.GetAllEmployees();
             return View(model);
         }
 
+        [AllowAnonymous]
         public ViewResult Details(int? id)
         {
             //throw new Exception("Error in Details View");
@@ -40,12 +45,14 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
         }
 
         [HttpGet]
+        
         public ViewResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        
         public IActionResult Create(EmployeeCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -67,6 +74,7 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
         }
 
         [HttpGet]
+        
         public ViewResult Edit(int id)
         {
             Employee employee = employeeRepository.GetEmployee(id);
@@ -83,6 +91,7 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
         }
 
         [HttpPost]
+        
         public IActionResult Edit(EmployeeEditViewModel model)
         {
             if (ModelState.IsValid)
