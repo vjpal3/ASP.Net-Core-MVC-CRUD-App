@@ -73,7 +73,7 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -81,6 +81,10 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
 
                 if (result.Succeeded)
                 {
+                    if(!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
                     return RedirectToAction("index", "Home");
 
                 }
