@@ -37,7 +37,7 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
                 
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("ListRoles", "administration");
                 }
 
                 foreach (IdentityError error in result.Errors)
@@ -48,6 +48,13 @@ namespace ASP.Net_Core_MVC_CRUD_App.Controllers
             }
             // The view is rendered with validation errors for user to fix.
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ListRoles()
+        {
+            var roles = roleManager.Roles;
+            return View(roles);
         }
     }
 }
